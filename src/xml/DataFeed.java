@@ -23,7 +23,6 @@ public class DataFeed {
 	
 private static void setUp(String episodesUrl){
 	try{
-
 	 dbf = DocumentBuilderFactory.newInstance();
 	 db = dbf.newDocumentBuilder();
 	 doc = db.parse(new URL(episodesUrl).openStream());
@@ -38,8 +37,6 @@ public List<String> getShowTitles(String url) throws Exception {
     List<String> allShowTitles = new ArrayList<String>();
     
     setUp(url);
-   
-
 	NodeList nList = doc.getElementsByTagName("item");
 
 	int index=0; 
@@ -53,18 +50,15 @@ public List<String> getShowTitles(String url) throws Exception {
 		if (nNode.getNodeType() == Node.ELEMENT_NODE) {
 
 			Element eElement = (Element) nNode;
-
 			//System.out.println("Staff id : " + eElement.getAttribute("id"));
 			
 			try{
 			allShowTitles.add(eElement.getElementsByTagName("title").item(0).getTextContent());
 			
-			
 			}catch(Exception e){
 				
 			}
 			index++;
-			
 
 		}
 	
@@ -79,7 +73,6 @@ public List<String> getShowTitles(String url) throws Exception {
     	String assetID = "";
     	
     	setUp(url);
-    	   
 
     	NodeList nList = doc.getElementsByTagName("item");
 
@@ -100,7 +93,6 @@ public List<String> getShowTitles(String url) throws Exception {
     					assetID=assetIdLink.substring(51);
     				}
     			
-    			
     			}catch(Exception e){
     				
     			}
@@ -116,9 +108,6 @@ public List<String> getShowTitles(String url) throws Exception {
     public HashMap<String,String> getShowData(String url) throws Exception {
 		
     	HashMap<String,String> showData = new HashMap<String,String>();
-    	
-    
-    	
 		return showData;
     	
 	} 
@@ -170,7 +159,6 @@ public List<String> getShowTitles(String url) throws Exception {
     	List<String> showClipTitles = new ArrayList<String>();
     	
     	setUp(url);
-    	   
 
     	NodeList nList = doc.getElementsByTagName("item");
 
@@ -198,7 +186,6 @@ public List<String> getShowTitles(String url) throws Exception {
     				
     			}
     			index++;
-    			
 
     		}
     	
@@ -231,9 +218,6 @@ public List<String> getShowTitles(String url) throws Exception {
     public String getFeaturedShowMostRecentEpisode(String url, String showTitle) throws Exception {
 		
     	String mostRecentTitle = "";
-    	
-		
-		
 		return mostRecentTitle;
     	
 	} 
